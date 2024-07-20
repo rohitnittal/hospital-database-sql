@@ -1,0 +1,27 @@
+-- Create the database
+CREATE DATABASE hospital;
+
+-- Use the database
+USE hospital;
+
+-- Create the tables
+CREATE TABLE patients (
+  patient_id INT PRIMARY KEY,
+  name VARCHAR(255),
+  date_of_birth DATE,
+  address VARCHAR(255)
+);
+
+CREATE TABLE doctors (
+  doctor_id INT PRIMARY KEY,
+  name VARCHAR(255),
+  specialty VARCHAR(255)
+);
+
+CREATE TABLE appointments (
+  appointment_id INT PRIMARY KEY,
+  patient_id INT,
+  doctor_id INT,
+  date DATE,
+  time TIME,
+  FOREIGN KEY (patient_id) REFERENCES patients
